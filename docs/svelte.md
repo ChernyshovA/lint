@@ -139,6 +139,7 @@ contracts: [{ pattern: "^CardTitle$", allow: ["layout", "typography"] }]
 | `{...{ class: "p-4" }}`            | a spread                               |
 | `style="color: red"`               | a style, property by property          |
 | `style:color={tone}`               | a style directive                      |
+| `<Button --tone="red">`            | a custom property set on a component   |
 
 A variable in the markup resolves to the script, one hop deep.
 
