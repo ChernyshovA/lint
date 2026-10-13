@@ -216,3 +216,16 @@ describe("Svelte templates", () => {
     ).toHaveLength(1)
   })
 })
+
+describe("nested namespace components", () => {
+  const ui = `import * as UI from "$lib/components/ui";`
+
+  it("judges <UI.Button.Root> the way <Button> is judged", () => {
+    const nested = found(`<UI.Button.Root class="p-4 bg-red-500" />`, ui)
+    expect(nested).toEqual(found(`<Button class="p-4 bg-red-500" />`))
+    expect(nested.length).toBeGreaterThan(0)
+    expect(
+      found(`<UI.Card.Title class="text-2xl">Hi</UI.Card.Title>`, ui)
+    ).toEqual(found(`<Card.Title class="text-2xl">Hi</Card.Title>`))
+  })
+})

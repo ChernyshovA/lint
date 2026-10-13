@@ -212,7 +212,7 @@ export function createComponentTracker(
         ? !tagIndex.has(root) && element.alias && tagIndex.has(element.alias)
           ? element.alias
           : root
-        : `${root}${property}`
+        : `${root}${property.replace(/\./g, "")}`
     if (tagIndex.has(name)) {
       return {
         component: name,
